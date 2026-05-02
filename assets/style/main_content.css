@@ -1,0 +1,24 @@
+#content{
+    
+    background-color: var(--bg-content);
+    max-width: 410px;
+    min-height: 400px;
+    margin: auto;
+    margin-block: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+#tittle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+
+}
+
+#text_content{
+    padding: 5px;
+    
+}

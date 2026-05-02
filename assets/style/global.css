@@ -2,7 +2,7 @@
 
     --bg-deepblue: #252b42;
     --bg-btn: #3b4366;
-
+    --bg-content: #d9dff1;
     --text: #ddd8d8;
 }
 
@@ -15,6 +15,7 @@
 
 #container{
     max-width: 1280px;
+    min-height: 100vh;
     margin: auto;
     background-color: var(--bg-deepblue);
     
