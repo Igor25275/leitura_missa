@@ -1,0 +1,38 @@
+#social_medias{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+#social_medias p{
+    font-family: var(--text-content-tittle);
+    font-weight: 600;
+}
+
+#social_medias ul{
+    list-style: none;
+}
+
+#social_medias ul li a{
+    text-decoration: none;
+    color: var(--text);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#credit_icons p{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#credit_icons p a{
+    color: var(--text);
+    text-decoration: none;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}

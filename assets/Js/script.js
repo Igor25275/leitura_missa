@@ -1,3 +1,5 @@
+/* 
+
 const buscarDados = async () => {
     try{
         const response = await fetch('https://liturgia.up.railway.app/v2/');
@@ -19,6 +21,9 @@ const buscarDados = async () => {
         console.error('Ops! Algo deu errado: ', erro);
     }
 }
+
+*/
+
 
 function showData(data){
     document.getElementById('titulo').innerHTML = `${data.titulo}`;
