@@ -1,7 +1,3 @@
-import { inject } from "@vercel/analytics"
-
-inject()
-
 // funcao que ira carregar os dados diarios de nossa Api
 async function carregarDadosDiarios() {
     // EX: 03/05/2026
