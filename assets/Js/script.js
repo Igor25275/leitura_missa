@@ -77,9 +77,11 @@ function btn_evangelho(dadosEvangelho){
     if (pTitulo && pReferencia && pTexto){
         pTitulo.innerHTML = dadosEvangelho.titulo1;
         pReferencia.innerHTML = `(${dadosEvangelho.referencia1})`;
-        pTexto.innerHTML = dadosEvangelho.texto1;
+        pTexto.innerHTML = `${dadosEvangelho.texto1} <br><br> - Palavra da Salvaçao.  <br><br> - Glória a vós, Senhor.`;
     }
 }
+
+
 
 // funçao que ao carregar a pagina , a funcao carregarDadosDiarios() seja chamada.
 window.onload = async () => {
@@ -136,7 +138,7 @@ window.onload = async () => {
     }
 
     //verificacao da segunda leitura , pois pode ter e pode nao ter
-    if (data && data.leituras && data.leituras.segundaLeitura){
+    if (data && data.leituras && data.leituras.segundaLeitura && data.leituras.segundaLeitura[0]){
 
         const segunda = data.leituras.segundaLeitura[0];
 
@@ -152,7 +154,7 @@ window.onload = async () => {
 
         // se caso a verificacao nao encontrar dados cai no else , pois nao tera segunda leitura.
     }else{
-        document.getElementById('text_content').innerHTML = 'Nao tem segunda leitura hoje.!'
+        document.getElementById('text_content').innerHTML = 'Nao temos segunda leitura hoje!'
     }
 
 }
