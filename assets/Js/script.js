@@ -48,7 +48,7 @@ function btn_first(dadosPrimeiraLeitura){
     if (pTitulo && pReferencia && pTexto){
         pTitulo.innerHTML = dadosPrimeiraLeitura.titulo1;
         pReferencia.innerHTML = `(${dadosPrimeiraLeitura.referencia1})`;
-        pTexto.innerHTML = dadosPrimeiraLeitura.texto1;
+        pTexto.innerHTML = `${dadosPrimeiraLeitura.texto1} <br><br> - Palavra do Senhor.  <br><br> - Graças a Deus.`;
     }
     
 }
@@ -59,7 +59,11 @@ function btn_Salmo(dadosSalmo){
     if (pTitulo && pReferencia && pTexto){
         pTitulo.innerHTML = dadosSalmo.titulo1;
         pReferencia.innerHTML = `(${dadosSalmo.referencia1})`;
-        pTexto.innerHTML = dadosSalmo.texto1;
+
+        // criei uma variavel nova para editar o texto do salmo, onde o replace encontrou a evidencia do '-' ele adiciona dois <br><br> para ficar formatado o texto.
+        let textoEditado = dadosSalmo.texto1;
+        textoEditado = textoEditado.replaceAll('—', '<br><br> —');
+        pTexto.innerHTML = textoEditado;
     }
 }
 
@@ -68,7 +72,7 @@ function btn_second(dadosSegundaLeitura){
     if (pTitulo && pReferencia && pTexto){
         pTitulo.innerHTML = dadosSegundaLeitura.titulo1;
         pReferencia.innerHTML = `(${dadosSegundaLeitura.referencia1})`;
-        pTexto.innerHTML = dadosSegundaLeitura.texto1;
+        pTexto.innerHTML = `${dadosSegundaLeitura.texto1} <br><br> - Palavra do Senhor.  <br><br> - Graças a Deus.`;
     }
 }
 
@@ -77,7 +81,9 @@ function btn_evangelho(dadosEvangelho){
     if (pTitulo && pReferencia && pTexto){
         pTitulo.innerHTML = dadosEvangelho.titulo1;
         pReferencia.innerHTML = `(${dadosEvangelho.referencia1})`;
-        pTexto.innerHTML = `${dadosEvangelho.texto1} <br><br> - Palavra da Salvaçao.  <br><br> - Glória a vós, Senhor.`;
+
+        // add duas frases no final da leitura
+        pTexto.innerHTML = `${dadosEvangelho.texto1} <br><br> - Palavra da Salvação.  <br><br> - Glória a vós, Senhor.`;
     }
 }
 
@@ -124,6 +130,7 @@ window.onload = async () => {
                 referencia1: salmo.referencia,
                 texto1: salmo.texto,
             })
+
         }
 
         // pendura a funcao btnEvangelho para ser chamada quando clicarmos no botao
@@ -144,6 +151,8 @@ window.onload = async () => {
 
         const btn2 = document.getElementById('btn_leitura-2');
 
+        document.getElementById('btn_leitura-2').style.display = 'block';
+
         btn2.onclick = () => {
             btn_second({
                 titulo1: segunda.titulo,
@@ -153,8 +162,10 @@ window.onload = async () => {
         }
 
         // se caso a verificacao nao encontrar dados cai no else , pois nao tera segunda leitura.
+
+        // Caso nao tenha a segunda leitura é adicionado um display 'none' a div do botao da segunda leitura para ele nao aparecer
     }else{
-        document.getElementById('text_content').innerHTML = 'Nao temos segunda leitura hoje!'
+        document.getElementById('btn_leitura-2').style.display = 'none';
     }
 
 }
