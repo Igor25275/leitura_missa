@@ -62,7 +62,7 @@ function btn_Salmo(dadosSalmo){
 
         // criei uma variavel nova para editar o texto do salmo, onde o replace encontrou a evidencia do '-' ele adiciona dois <br><br> para ficar formatado o texto.
         let textoEditado = dadosSalmo.texto1;
-        textoEditado = textoEditado.replaceAll('—', '<br><br> —');
+        textoEditado = textoEditado.replaceAll('—', '<br> —');
         pTexto.innerHTML = textoEditado;
     }
 }
@@ -106,6 +106,10 @@ window.onload = async () => {
         // coloca da data do dia 
         const hoje = document.getElementById('date');
         hoje.innerHTML = data.data;
+
+        // coloca a semana e o tempo que estamos 
+        const semana = document.getElementById('week_temp')
+        semana.innerHTML = data.liturgia
 
         // guarda dentro da variavel o elemento do botao
         const btn1 = document.getElementById('btn_leitura-1');
