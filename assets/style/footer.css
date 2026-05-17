@@ -13,6 +13,7 @@
 
 #social_medias ul{
     list-style: none;
+    display: flex;
 }
 
 #social_medias ul li a{

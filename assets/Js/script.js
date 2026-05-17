@@ -62,7 +62,7 @@ function btn_Salmo(dadosSalmo){
 
         // criei uma variavel nova para editar o texto do salmo, onde o replace encontrou a evidencia do '-' ele adiciona dois <br><br> para ficar formatado o texto.
         let textoEditado = dadosSalmo.texto1;
-        textoEditado = textoEditado.replaceAll('—', '<br> —');
+        textoEditado = textoEditado.replaceAll('–', '<br><br>–')
         pTexto.innerHTML = textoEditado;
     }
 }
@@ -155,7 +155,7 @@ window.onload = async () => {
 
         const btn2 = document.getElementById('btn_leitura-2');
 
-        document.getElementById('btn_leitura-2').style.display = 'block';
+        document.getElementById('btn_leitura-2').style.display = 'display';
 
         btn2.onclick = () => {
             btn_second({
