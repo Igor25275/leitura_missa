@@ -41,6 +41,9 @@ const pTitulo = document.getElementById('tittle');
 const pReferencia = document.getElementById('reference');
 const pTexto = document.getElementById('text_content');
 
+// variavel global criada para conseguir acessar os dados no window.onload e na funçao do botao para quando o usuario quiser acessar uma data em especifico.
+let data;
+
 // funcao do botao da primeira leitura 
 function btn_first(dadosPrimeiraLeitura){
     // Faz a verificar se os elementos existem realmente
@@ -48,7 +51,7 @@ function btn_first(dadosPrimeiraLeitura){
     if (pTitulo && pReferencia && pTexto){
         pTitulo.innerHTML = dadosPrimeiraLeitura.titulo1;
         pReferencia.innerHTML = `(${dadosPrimeiraLeitura.referencia1})`;
-        pTexto.innerHTML = `${dadosPrimeiraLeitura.texto1} <br><br> - Palavra do Senhor.  <br><br> - Graças a Deus.`;
+        pTexto.innerHTML = `${dadosPrimeiraLeitura.texto1} <br><br> - Palavra do Senhor.  <br> - Graças a Deus.`;
     }
     
 }
@@ -72,7 +75,7 @@ function btn_second(dadosSegundaLeitura){
     if (pTitulo && pReferencia && pTexto){
         pTitulo.innerHTML = dadosSegundaLeitura.titulo1;
         pReferencia.innerHTML = `(${dadosSegundaLeitura.referencia1})`;
-        pTexto.innerHTML = `${dadosSegundaLeitura.texto1} <br><br> - Palavra do Senhor.  <br><br> - Graças a Deus.`;
+        pTexto.innerHTML = `${dadosSegundaLeitura.texto1} <br><br> - Palavra do Senhor.  <br> - Graças a Deus.`;
     }
 }
 
@@ -83,18 +86,13 @@ function btn_evangelho(dadosEvangelho){
         pReferencia.innerHTML = `(${dadosEvangelho.referencia1})`;
 
         // add duas frases no final da leitura
-        pTexto.innerHTML = `${dadosEvangelho.texto1} <br><br> - Palavra da Salvação.  <br><br> - Glória a vós, Senhor.`;
+        pTexto.innerHTML = `${dadosEvangelho.texto1} <br><br> - Palavra da Salvação.  <br> - Glória a vós, Senhor.`;
     }
 }
 
 
-
-// funçao que ao carregar a pagina , a funcao carregarDadosDiarios() seja chamada.
-window.onload = async () => {
-    const data = await carregarDadosDiarios();
-
-    console.log(data);
-
+// funçao onde tem toda a logica para armazear os dados corretos em cada botao, e as verificaçoes para cada botao
+function carregaDadosMissa(){
     // Faz a verificar se existem realmete conteudo dentro de cada dado
     if (data && data.leituras && data.leituras.primeiraLeitura && data.leituras.salmo && data.leituras.evangelho){
         const primeira = data.leituras.primeiraLeitura[0];
@@ -155,7 +153,7 @@ window.onload = async () => {
 
         const btn2 = document.getElementById('btn_leitura-2');
 
-        document.getElementById('btn_leitura-2').style.display = 'display';
+        btn2.style.display = '';
 
         btn2.onclick = () => {
             btn_second({
@@ -171,24 +169,46 @@ window.onload = async () => {
     }else{
         document.getElementById('btn_leitura-2').style.display = 'none';
     }
-
 }
 
 
-async function carregar_dados_especifico() {
-       
-    let teste = document.getElementById('data_hoje_calendar').value;
-    let dia = teste.split('-')[2];
-    let mes = teste.split('-')[1];
-    
 
-    try {
-        const response = await fetch (`https://liturgia.up.railway.app/v2/${dia}-${mes}`);
-        const date = await response.json();
+// funçao que ao carregar a pagina , a funcao carregarDadosDiarios() seja chamada.
+window.onload = async () => {
+    data = await carregarDadosDiarios();
 
-        console.log(date);
+    console.log(data);
 
-    } catch (error) {
+    // chamada da funçao para mostrar os dados carregados diariamente
+    carregaDadosMissa();
+
+
+    // variavel para acessar o id do elemento botao no html
+    const button_search_date = document.getElementById('button_buscar');
+
+    // funçao do botao em espera para ser chamada quando o usuario clicar no botao
+    button_search_date.onclick = async () => {
         
+        // Aqui pega o value do calendario e depois aplica o split para acessar apenas o dia e o mes para jogar no parametro da requisiçao.
+        let teste = document.getElementById('data_hoje_calendar').value;
+        let dia = teste.split('-')[2];
+        let mes = teste.split('-')[1];
+
+        try {
+
+            // faz a requisiçao do dia especifico com os parametros do dia e do mes.
+            const response = await fetch (`https://liturgia.up.railway.app/v2/${dia}-${mes}`);
+            data = await response.json();
+            console.log(data);
+
+            // chamada da funçao para mostrar os dados carregados do dia que o usuario escolheu
+            carregaDadosMissa();
+
+        } catch (error) {
+            console.error('Erro ao buscar dados especificos', error);
+        }
     }
+
+
 }
+

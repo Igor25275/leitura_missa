@@ -2,24 +2,36 @@ header{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 1.2rem;
     padding-block: 30px;
     color: var(--text);
     font-weight: 600;
+}
+#img_ostensorio_header{
+    width: 13rem;
+    height: auto;
+
 }
 
 #date{
     letter-spacing: 0.2rem;
 }
 
-#week_temp{
+#data_hoje_calendar, #button_buscar{
+    border-radius: 10px;
+    border: none;
     letter-spacing: 0.1rem;
+    background-color: var(--bg-btn);
+    color: var(--text);
+    padding: 0.4rem;
+    font: var(--text-content-tittle);
+    text-align: center;
+    cursor: pointer;
+
 }
 
-#img_ostensorio_header{
-    width: 13rem;
-    height: auto;
-
+#week_temp{
+    letter-spacing: 0.1rem;
 }
 
 #logo_missa{
@@ -28,4 +40,15 @@ header{
     border-radius: 10px;
     letter-spacing: 3px;
     font-size: larger;
+}
+
+
+@media (min-width: 768px) {
+    
+    #data_hoje_calendar:hover{
+        border: 2px solid var(--text);
+    }
+    #button_buscar:hover{
+        border: 2px solid var(--text);
+    }
 }
