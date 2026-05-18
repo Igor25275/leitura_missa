@@ -173,3 +173,22 @@ window.onload = async () => {
     }
 
 }
+
+
+async function carregar_dados_especifico() {
+       
+    let teste = document.getElementById('data_hoje_calendar').value;
+    let dia = teste.split('-')[2];
+    let mes = teste.split('-')[1];
+    
+
+    try {
+        const response = await fetch (`https://liturgia.up.railway.app/v2/${dia}-${mes}`);
+        const date = await response.json();
+
+        console.log(date);
+
+    } catch (error) {
+        
+    }
+}

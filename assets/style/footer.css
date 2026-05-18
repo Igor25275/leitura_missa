@@ -23,18 +23,3 @@
     cursor: pointer;
 }
 
-#credit_icons p{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-#credit_icons p a{
-    color: var(--text);
-    text-decoration: none;
-    font-size: 0.5rem;
-
-    &:hover{
-        text-decoration: underline;
-    }
-}
