@@ -1,5 +1,5 @@
 #content{
-    background-color: var(--bg-content);
+    background-color: var(--bordas);
     max-width: 410px;
     min-height: 400px;
     margin: auto;
@@ -15,30 +15,32 @@
     align-items: center;
     gap: 10px;
     padding-top: 10px;
-    font-family: var(--text-content-tittle);
+    font-family: var(--text-button);
 
 }
 
 #tittle{
     text-align: center;
     
-    font-weight: 400;
+    font-weight: 700;
 }
 
 #reference{
-    font-weight: 500;
+    font-weight: 600;
 }
 
 #text_content{
     
-    font-family: var(--text-content-tittle);
-    font-size: larger;
+    font-family: var(--text-content);
+    font-size: 18px;
+    line-height: 1.625;
+    color: var(--text-color);
 }
 
 @media (min-width: 768px) {
 
     #content{
-        min-width: 650px;
+        min-width: 750px;
 
     }
 }

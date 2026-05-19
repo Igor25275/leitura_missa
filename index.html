@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="assets/style/index.css">
     <title>Leitura Missa</title>
 
-    <link rel="icon" href="assets/img/book.png">
-    <link rel="apple-touch-icon" href="assets/img/book.png">
+    <link rel="icon" href="assets/img/book_clean.png">
+    <link rel="apple-touch-icon" href="assets/img/book_clean.png">
 </head>
 <body>
     <div id="container">
@@ -19,14 +19,17 @@
         -->
         <header>
             <img id="img_ostensorio_header" src="assets/img/ostensorio.png" alt="imagem de um ostensorio dourada">
+
+            <span id="logo_missa">Leitura da Missa</span>
+
             <p id="date"></p>
             <div id="search_date">
-                <input type="date" name="" id="data_hoje_calendar">
+                <input type="date" name="date" id="data_hoje_calendar">
                 <button type="button" id="button_buscar">Buscar</button>
             </div>
             
             <p id="week_temp"></p>
-            <span id="logo_missa">Leitura da Missa</span>
+            
         </header>
 
         <!--Div onde contem os 4 botoes para as leituras-->
@@ -92,8 +95,5 @@
 
 <script src="assets/Js/script.js"></script>
 <script defer src="/_vercel/insights/script.js"></script>
-<script>
-  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-</script>
-<script defer src="/<unique-path>/script.js"></script>
+
 </html>

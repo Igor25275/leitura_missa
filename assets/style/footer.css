@@ -8,8 +8,8 @@
 }
 
 #social_medias p{
-    font-family: var(--text-content-tittle);
-    font-weight: 600;
+    font-family: var(--text-button);
+    font-weight: 500;
 }
 
 #social_medias ul{
@@ -17,9 +17,16 @@
     display: flex;
 }
 
-#social_medias ul li a{
+#social_medias ul li a .fa-linkedin{
     text-decoration: none;
-    color: var(--text);
+    color: var(--bg-btn);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#social_medias ul li a .fa-github{
+    text-decoration: none;
+    color: var(--text-color);
     font-size: 2rem;
     cursor: pointer;
 }

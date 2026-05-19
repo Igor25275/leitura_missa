@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 :root{
 
@@ -8,6 +10,22 @@
     --bg-content: #d9dff1;
     --text: #ddd8d8;
     --text-content-tittle: "Fredoka", sans-serif;
+}
+
+:root {
+    /* Cores para teste novo visual */
+
+    --bg-geral: #FDFBF7;
+    --containers: #ffffff;
+    --text-color: #1E2022;
+    --tittle: #9A6A15;
+    --bordas: #EFECE6;
+
+
+    --text-content: "Merriweather Sans", sans-serif;
+    --text-button: "Plus Jakarta Sans", sans-serif;
+
+    /* */
 }
 
 *{
@@ -21,5 +39,5 @@
     max-width: 1280px;
     min-height: 100vh;
     margin: auto;
-    background: linear-gradient(to bottom,var(--bg-deepblue), var(--bg-deepblue2) );
+    background: linear-gradient(to bottom,var(--bg-geral), var(--containers) );
 }

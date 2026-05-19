@@ -4,11 +4,13 @@ header{
     align-items: center;
     gap: 1.2rem;
     padding-block: 30px;
-    color: var(--text);
+    color: var(--text-color);
     font-weight: 600;
+    font-family: var(--text-button);
 }
+
 #img_ostensorio_header{
-    width: 13rem;
+    width: 8rem;
     height: auto;
 
 }
@@ -17,25 +19,45 @@ header{
     letter-spacing: 0.2rem;
 }
 
-#data_hoje_calendar, #button_buscar{
-    border-radius: 10px;
-    border: none;
-    letter-spacing: 0.1rem;
-    background-color: var(--bg-btn);
-    color: var(--text);
-    padding: 0.4rem;
-    font: var(--text-content-tittle);
-    text-align: center;
-    cursor: pointer;
+#search_date{
+    display: flex;
+    gap: 8px;
+}
 
+#data_hoje_calendar{
+    flex: 1;
+    height: 38px;
+    padding: 0 16px;
+    border-radius: 10px;
+    background-color: var(--containers); /* Branco Puro */
+    color: var(--text-color); /* Cinza Carvão / Texto Principal */
+    border: 2px solid var(--bordas); /* Creme Sutil / Bordas */
+    font-size: 16px; /* Evita o zoom automático indesejado no iOS */
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+#button_buscar {
+    height: 38px;
+    padding: 0 16px;
+    border-radius: 10px;
+    background-color: var(--tittle); /* Dourado Litúrgico */
+    color: var(--containers); /* Texto Branco para alto contraste */
+    border: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+    
 }
 
 #week_temp{
     letter-spacing: 0.1rem;
+    text-align: center;
 }
 
 #logo_missa{
-    border: solid 2px rgb(233, 229, 197);
+    color: var(--tittle);
+    border: solid 2px var(--bordas);
     padding: 5px 15px;
     border-radius: 10px;
     letter-spacing: 3px;
@@ -45,8 +67,23 @@ header{
 
 @media (min-width: 768px) {
     
+    #data_hoje_calendar{
+        height: 48px;
+        padding: 0 24px;
+        cursor: pointer;
+    }
+
+    #button_buscar{
+        height: 48px;
+        padding: 0 24px;
+        cursor: pointer;
+
+    }
+    
+
     #data_hoje_calendar:hover{
         border: 2px solid var(--text);
+        
     }
     #button_buscar:hover{
         border: 2px solid var(--text);
